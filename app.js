@@ -4,14 +4,11 @@ const tasks = require('./routes/tasks')
 const connectDB = require('./db/connect');
 require('dotenv').config()
 
+app.use(express.static('./public'));
 app.use(express.json());
-
-app.get('/hello', (req, res) => {
-    res.send('task manager');
-});
 app.use('/api/v1/tasks', tasks);
-const port = 3000;
 
+const port = 3000;
 const start = () => {
     try {
         connectDB();
@@ -23,13 +20,3 @@ const start = () => {
     }
 }
 start();
-
-
-
-
-/*
-get 
-post 
-patch
-delete
-*/
